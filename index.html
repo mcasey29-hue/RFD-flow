@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RFD Flow | Discover. Book. Experience.</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #080808;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #111;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      border-bottom: 2px solid #66ff00;
+    }
+
+    .logo {
+      color: #66ff00;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 10px;
+    }
+
+    nav a:hover {
+      color: #66ff00;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 90px 20px;
+      background: linear-gradient(135deg, #111, #183000);
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 56px);
+      margin-bottom: 15px;
+    }
+
+    .hero span {
+      color: #66ff00;
+    }
+
+    .hero p {
+      color: #ccc;
+      font-size: 18px;
+    }
+
+    .search {
+      margin: 30px auto;
+      display: flex;
+      max-width: 650px;
+      gap: 10px;
+    }
+
+    .search input {
+      flex: 1;
+      min-width: 0;
+      padding: 15px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+
+    button {
+      background: #66ff00;
+      color: black;
+      border: none;
+      padding: 15px 22px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #a3ff5c;
+    }
+
+    .section {
+      padding: 55px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section h2 {
+      color: #66ff00;
+      font-size: 30px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: #181818;
+      border: 1px solid #333;
+      border-radius: 15px;
+      padding: 25px;
+    }
+
+    .card h3 {
+      color: #66ff00;
+    }
+
+    .card p {
+      color: #bbb;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #111;
+      color: #aaa;
+    }
+
+    @media (max-width: 500px) {
+      .search {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">RFD FLOW</div>
+
+    <nav>
+      <a href="#discover">Discover</a>
+      <a href="#booking">Booking</a>
+      <a href="#heroes">RFD Heroes</a>
+      <a href="#membership">Membership</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Discover. Book. <span>Experience.</span></h1>
+
+    <p>
+      Discover amazing local businesses, book services,
+      and celebrate outstanding employees.
+    </p>
+
+    <div class="search">
+      <input
+        type="search"
+        placeholder="Search businesses or services..."
+        aria-label="Search businesses or services"
+      >
+      <button type="button" onclick="searchBusinesses()">
+        Search
+      </button>
+    </div>
+
+    <p id="searchMessage" aria-live="polite"></p>
+  </section>
+
+  <section class="section" id="discover">
+    <h2>🔥 Discover Local Businesses</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>💈 Barbers & Salons</h3>
+        <p>Find your next favorite barber or stylist.</p>
+      </div>
+
+      <div class="card">
+        <h3>🚗 Automotive</h3>
+        <p>Explore detailing and automotive services.</p>
+      </div>
+
+      <div class="card">
+        <h3>🏠 Home Services</h3>
+        <p>Discover local cleaning and home professionals.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="booking">
+    <h2>📅 RFD Flow Booking</h2>
+
+    <p>
+      Find services, compare businesses, and discover
+      appointment options.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Book Appointments</h3>
+        <p>Online booking is coming soon.</p>
+      </div>
+
+      <div class="card">
+        <h3>Walk-In Availability</h3>
+        <p>Discover businesses accepting walk-ins.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="heroes">
+    <h2>🏆 RFD Heroes</h2>
+
+    <p>
+      Great employees deserve recognition.
+      Celebrate the people behind outstanding service.
+    </p>
+  </section>
+
+  <section class="section" id="membership">
+    <h2>👑 Business Memberships</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>FREE</h3>
+        <h2>$0/month</h2>
+        <p>Business profiles, reviews, and basic booking tools.</p>
+      </div>
+
+      <div class="card">
+        <h3>PRO</h3>
+        <h2>$29.99/month</h2>
+        <p>Advanced tools, analytics, and scheduling.</p>
+        <p>30-day free trial. No credit card required.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 RFD Flow. Discover. Book. Experience.</p>
+  </footer>
+
+  <script>
+    function searchBusinesses() {
+      const input = document.querySelector(".search input");
+      const message = document.getElementById("searchMessage");
+      const query = input.value.trim();
+
+      if (!query) {
+        message.textContent = "Enter a business or service to search.";
+        return;
+      }
+
+      message.textContent =
+        'Search for "' + query + '" is coming soon!';
+    }
+  </script>
+
+</body>
+</html>
