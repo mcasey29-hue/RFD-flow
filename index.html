@@ -252,20 +252,37 @@
   </footer>
 
   <script>
-    function searchBusinesses() {
-      const input = document.querySelector(".search input");
-      const message = document.getElementById("searchMessage");
-      const query = input.value.trim();
+function searchBusinesses() {
+  const input = document.querySelector(".search-input");
+  const message = document.getElementById("searchMessage");
 
-      if (!query) {
-        message.textContent = "Enter a business or service to search.";
-        return;
-      }
+  if (!input || !message) return;
 
-      message.textContent =
-        'Search for "' + query + '" is coming soon!';
-    }
-  </script>
+  const query = input.value.trim().toLowerCase();
+
+  if (!query) {
+
+    message.textContent = "Please enter a business or service.";
+    return;
+  }
+
+  const businesses = [
+    { name: "RFD Demo Barbershop", category: "barber" },
+    { name: "RFD Demo Auto Detailing", category: "car wash" },
+    { name: "RFD Demo Cleaning", category: "cleaning" }
+  ];
+
+  const results = businesses.filter(business =>
+    business.name.toLowerCase().includes(query) ||
+    business.category.toLowerCase().includes(query)
+  );
+
+  message.textContent = results.length
+    ? results.map(business => business.name).join(", ")
+    : "No businesses found.";
+}
+
+</script>
 
 </body>
 </html>
